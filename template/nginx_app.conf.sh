@@ -54,6 +54,10 @@ $NGINX_SSL_CMNT    server_name $custom_domain ;
         sub_filter __APPSMITH_RECAPTCHA_ENABLED__ '\${APPSMITH_RECAPTCHA_ENABLED}';
     }
 
+    location /favicon.ico {
+       try_files \$uri /favicon.ico =404;
+    }
+
     location /f {
        proxy_pass https://cdn.optimizely.com/;
     }
